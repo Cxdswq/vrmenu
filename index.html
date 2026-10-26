@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Variante Hotel & Cafe - Online Menu</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Main Wrapper (centered on desktop, full width on mobile) -->
+    <div class="app-container">
+        
+        <!-- HEADER -->
+        <header class="main-header">
+            <div class="header-cover" style="background-image: url('img/11.jpeg');"></div>
+            <div class="header-content">
+                <div class="brand-row">
+                    <img src="img/v.jpeg" alt="Variante Hotel & Cafe Logo" class="brand-logo">
+                    <div class="brand-info">
+                        <h1 class="hotel-title">VARIANTE</h1>
+                        <div class="hotel-subtitle">HOTEL & CAFE</div>
+                    </div>
+                </div>
+                
+                <!-- Quick controls (Language Selection) -->
+                <div class="controls-row">
+                    <button class="control-btn" id="lang-toggle" aria-label="Language Selector">
+                        <i class="fa-solid fa-globe"></i> <span id="lang-label">EN</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- STICKY TOP CONTAINER -->
+        <div class="sticky-top-bar">
+            <!-- Search Engine -->
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="menu-search" placeholder="Ara..." data-localize-placeholder="search-placeholder">
+                <button id="search-clear" class="search-clear-btn" style="display: none;">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Categories Bar (Horizontal Scrollable) -->
+            <nav class="categories-nav" id="categories-nav">
+                <div class="nav-scroll-wrapper">
+                    <button class="category-tab active" data-category="kahvalti" data-localize="cat-kahvalti">Kahvaltı</button>
+                    <button class="category-tab" data-category="tostlar" data-localize="cat-tostlar">Tostlar</button>
+                    <button class="category-tab" data-category="atistirmaliklar" data-localize="cat-atistirmaliklar">Atıştırmalıklar</button>
+                    <button class="category-tab" data-category="ana-yemekler" data-localize="cat-ana-yemekler">Ana Yemekler</button>
+                    <button class="category-tab" data-category="tatlilar" data-localize="cat-tatlilar">Tatlılar</button>
+                    <button class="category-tab" data-category="soguk-icecekler" data-localize="cat-soguk-icecekler">Soğuk İçecekler</button>
+                    <button class="category-tab" data-category="sicak-icecekler" data-localize="cat-sicak-icecekler">Sıcak İçecekler</button>
+                </div>
+            </nav>
+        </div>
+
+        <!-- MAIN MENU CONTAINER -->
+        <main class="menu-content">
+            <!-- Search Results Counter (hidden by default) -->
+            <div id="search-results-info" class="search-results-info" style="display: none;">
+                <span id="results-count">0</span> <span data-localize="search-results-text">ürün bulundu</span>
+            </div>
+
+            <!-- No Results Message (hidden by default) -->
+            <div id="no-results-message" class="no-results-message" style="display: none; text-align: center; padding: 40px 20px; color: var(--text-muted);">
+                <i class="fa-solid fa-utensils" style="font-size: 24px; margin-bottom: 12px; color: var(--accent); display: block;"></i>
+                <p data-localize="no-results-text">Aramanızla eşleşen ürün bulunamadı.</p>
+            </div>
+
+            <!-- KATEGORİ: KAHVALTI -->
+            <section id="sec-kahvalti" class="menu-section-group" data-category="kahvalti">
+                <img src="img/9.jpeg" alt="Kahvaltı Banner" class="section-banner">
+                <div class="category-header">
+                    <span class="cat-subtitle">Güne Başlarken,</span>
+                    <h2 data-localize="cat-kahvalti">KAHVALTI</h2>
+                    <div class="category-header-divider"></div>
+                </div>
+                
+                <div class="quote-box">
+                    <p class="quote-text" data-localize="quote-kahvalti">"Yemek yemek üstüne ne düşünürsünüz bilmem ama kahvaltının mutlulukla bir ilgisi olmalı"</p>
+                    <span class="quote-author" data-localize="author-kahvalti">CEMAL SÜREYYA</span>
+                </div>
+
+                <div class="items-grid" id="grid-kahvalti">
+                    <!-- Javascript populates -->
+                </div>
+            </section>
+
+            <!-- KATEGORİ: TOSTLAR -->
+            <section id="sec-tostlar" class="menu-section-group" data-category="tostlar">
+                <img src="img/14.jpeg" alt="Tostlar Banner" class="section-banner">
+                <div class="category-header">
+                    <h2 data-localize="cat-tostlar">TOSTLAR</h2>
+                    <div class="category-header-divider"></div>
+                </div>
+
+
+                <div class="items-grid" id="grid-tostlar">
+                    <!-- Javascript populates -->
+                </div>
+            </section>
+
+            <!-- KATEGORİ: ATISTIRMALIKLAR -->
+            <section id="sec-atistirmaliklar" class="menu-section-group" data-category="atistirmaliklar">
+                <img src="img/15.jpeg" alt="Atıştırmalıklar Banner" class="section-banner" style="object-position: center 70%;">
+                <div class="category-header">
+                    <h2 data-localize="cat-atistirmaliklar">LEZZETLİ ATISTIRMALIKLAR</h2>
+                    <div class="category-header-divider"></div>
+                </div>
+                
+                <div class="quote-box">
+                    <p class="quote-text" data-localize="quote-atistirmaliklar">"Yeni bir yemeğin keşfi, insan ırkının mutluluğuna, bir yıldızın keşfedilmesinden daha fazla katkıda bulunur."</p>
+                    <span class="quote-author" data-localize="author-atistirmaliklar">Jean Anthelme Brillat-Savarin</span>
+                </div>
+
+                <div class="items-grid" id="grid-atistirmaliklar">
+                    <!-- Javascript populates -->
+                </div>
+            </section>
+
+            <!-- KATEGORİ: ANA YEMEKLER -->
+            <section id="sec-ana-yemekler" class="menu-section-group" data-category="ana-yemekler">
+                <img src="img/16.jpeg" alt="Ana Yemekler Banner" class="section-banner" style="object-position: center 80%;">
+                <div class="category-header">
+                    <h2 data-localize="cat-ana-yemekler">ANA YEMEKLER</h2>
+                    <div class="category-header-divider"></div>
+                </div>
+                
+                <div class="quote-box">
+                    <p class="quote-text" data-localize="quote-ana-yemekler">"Ağzınızda yemek olduğu an dünyanın tüm sırlarını çözmüşsünüz demektir"</p>
+                    <span class="quote-author" data-localize="author-ana-yemekler">Franz KAFKA</span>
+                </div>
+
+                <div class="items-grid" id="grid-ana-yemekler">
+                    <!-- Javascript populates -->
+                </div>
+            </section>
+
+            <!-- KATEGORİ: TATLILAR -->
+            <section id="sec-tatlilar" class="menu-section-group" data-category="tatlilar">
+                <img src="img/18.jpg" alt="Tatlılar Banner" class="section-banner">
+                <div class="category-header">
+                    <h2 data-localize="cat-tatlilar">TATLILAR</h2>
+                    <div class="category-header-divider"></div>
+                </div>
+                
+                <div class="quote-box">
+                    <p class="quote-text" data-localize="quote-tatlilar">"Misafire En iyi ikram, güler yüz ve tatlı dildir."</p>
+                    <span class="quote-author" data-localize="author-tatlilar">İmam EVZAİ</span>
+                </div>
+
+                <div class="items-grid" id="grid-tatlilar">
+                    <!-- Javascript populates -->
+                </div>
+            </section>
+
+            <!-- KATEGORİ: SOĞUK İÇECEKLER -->
+            <section id="sec-soguk-icecekler" class="menu-section-group" data-category="soguk-icecekler">
+                <img src="img/13.jpeg" alt="Soğuk İçecekler Banner" class="section-banner">
+                <div class="category-header">
+                    <h2 data-localize="cat-soguk-icecekler">SOĞUK İÇECEKLER</h2>
+                    <div class="category-header-divider"></div>
+                </div>
+
+                <div class="items-grid" id="grid-soguk-icecekler">
+                    <!-- Javascript populates -->
+                </div>
+            </section>
+
+            <!-- KATEGORİ: SICAK İÇECEKLER -->
+            <section id="sec-sicak-icecekler" class="menu-section-group" data-category="sicak-icecekler">
+                <img src="img/17.jpg" alt="Sıcak İçecekler Banner" class="section-banner">
+                <div class="category-header">
+                    <h2 data-localize="cat-sicak-icecekler">SICAK İÇECEKLER</h2>
+                    <div class="category-header-divider"></div>
+                </div>
+                
+                <div class="quote-box">
+                    <p class="quote-text" data-localize="quote-sicak-icecekler">"O çay, sadece bir içecek değil, bir anlık huzurun, bir anlık direncin simgesiydi. Tadı, bir hayatın özü gibiydi, acı ve tatlı karışık, damakta kalan bir tecrübe gibi."</p>
+                    <span class="quote-author" data-localize="author-sicak-icecekler">Bekle Beni- Syf.19 -Zülfü LİVANELİ</span>
+                </div>
+
+                <div class="items-grid" id="grid-sicak-icecekler">
+                    <!-- Javascript populates -->
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER INFO -->
+        <footer class="app-footer">
+            <p class="footer-hotel">Variante Hotel & Cafe</p>
+            <p class="footer-address">
+                <i class="fa-solid fa-location-dot"></i> Birleşmiş Milletler Caddesi, 404. Sk. No:27/A Varyant, Konak/İzmir
+            </p>
+            <p class="footer-phones">
+                <i class="fa-solid fa-phone"></i> +90 232 425 40 99 &nbsp;|&nbsp; +90 542 609 40 99
+            </p>
+            <p class="footer-credit">© 2026 Variante Hotel. All rights reserved.</p>
+        </footer>
+
+        <!-- Floating Menu Button (FAB) -->
+        <button class="floating-menu-btn" id="fab-menu-btn" aria-label="Menu Categories">
+            <i class="fa-solid fa-utensils"></i>
+            <span class="fab-pulse"></span>
+        </button>
+
+        <!-- Bottom Sheet Navigation Overlay -->
+        <div class="sheet-backdrop" id="sheet-backdrop"></div>
+        <div class="bottom-sheet" id="bottom-sheet">
+            <div class="sheet-header">
+                <div class="sheet-drag-handle"></div>
+                <h3 data-localize="sheet-title">Menü Kategorileri</h3>
+                <button class="sheet-close-btn" id="sheet-close-btn" aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="sheet-content">
+                <ul class="sheet-categories-list" id="sheet-categories-list">
+                    <!-- Javascript populates to ensure dynamic localization -->
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
